@@ -1,0 +1,149 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} 
+{% block title %}
+Add | Edit {{name}}
+{% endblock title %}
+{% block content %}
+
+<div class="container">
+  <form method="POST" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    <div class="text-center">
+      <h2 class="display-3">Add Student</h2>
+    </div>
+
+    <div class="card">
+      <div class="card-header">Student Profile</div>
+      <div class="card-body">
+        <div class="form-row">{{form.student_photo|as_crispy_field}}</div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            {{form.serial_number|as_crispy_field}}
+          </div>
+          <div class="form-group col-md-3">
+            {{form.student_name|as_crispy_field}}
+          </div>
+          <div class="form-group col-md-3">
+            {{form.student_surname|as_crispy_field}}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            {{form.student_class|as_crispy_field}}
+          </div>
+          <div class="form-group col-md-4">
+            {{form.student_section|as_crispy_field}}
+          </div>
+          <div class="form-group col-md-4">
+            {{form.student_roll_no|as_crispy_field}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mt-2">
+      <div class="card-header">Semester 1</div>
+      <div class="card-body">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            {{form.marks_maths_semester_1|as_crispy_field}}
+          </div>
+          <div class="form-group col-md-4">
+            {{form.marks_science_semester_1|as_crispy_field}}
+          </div>
+          <div class="form-group col-md-4">
+            {{form.marks_english_semester_1|as_crispy_field}}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            {{form.marks_hindi_semester_1|as_crispy_field}}
+          </div>
+          <div class="form-group col-md-6">
+            {{form.marks_computer_science_semester_1|as_crispy_field}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mt-2">
+      <div class="card-header">Semester 2</div>
+      <div class="card-body">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            {{form.marks_maths_semester_2|as_crispy_field}}
+          </div>
+          <div class="form-group col-md-4">
+            {{form.marks_science_semester_2|as_crispy_field}}
+          </div>
+          <div class="form-group col-md-4">
+            {{form.marks_english_semester_2|as_crispy_field}}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            {{form.marks_hindi_semester_2|as_crispy_field}}
+          </div>
+          <div class="form-group col-md-6">
+            {{form.marks_computer_science_semester_2|as_crispy_field}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mt-2">
+      <div class="card-header">Semester 3</div>
+      <div class="card-body">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            {{form.marks_maths_semester_3|as_crispy_field}}
+          </div>
+          <div class="form-group col-md-4">
+            {{form.marks_science_semester_3|as_crispy_field}}
+          </div>
+          <div class="form-group col-md-4">
+            {{form.marks_english_semester_3|as_crispy_field}}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            {{form.marks_hindi_semester_3|as_crispy_field}}
+          </div>
+          <div class="form-group col-md-6">
+            {{form.marks_computer_science_semester_3|as_crispy_field}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mt-2">
+      <div class="card-header">Semester 4</div>
+      <div class="card-body">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            {{form.marks_maths_semester_4|as_crispy_field}}
+          </div>
+          <div class="form-group col-md-4">
+            {{form.marks_science_semester_4|as_crispy_field}}
+          </div>
+          <div class="form-group col-md-4">
+            {{form.marks_english_semester_4|as_crispy_field}}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            {{form.marks_hindi_semester_4|as_crispy_field}}
+          </div>
+          <div class="form-group col-md-6">
+            {{form.marks_computer_science_semester_4|as_crispy_field}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-2">
+      <button class="btn btn-primary mb-4" type="submit">Submit</button>
+    </div>
+  </form>
+</div>
+
+{% endblock content %}

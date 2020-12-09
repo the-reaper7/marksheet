@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+{{name}} | Delete
+{% endblock title %}
+{% block content %}
+<div class="container">
+	<form method="POST" action="">
+		{% csrf_token %}
+		<p>Are you sure you want to delete {{name}}?</p>
+		<a class="btn btn-primary" href="{% url 'student_profile' name.serial_number %}">&laquo Back to Profile</a>
+		<input class="btn btn-danger" type="submit" value="Confirm">
+	</form>
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {% load static %}  
+{% block title %}
+Search
+{% endblock title %}
+{% block content %} {% load widget_tweaks %}
+<link rel="stylesheet" href="{% static 'css/search.css' %}">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<div class="container">
+  <div>
+    <form id="searchForm" method="GET">
+      <div class="row">
+        <div class="form-group col-10">
+          <input type="text" id="searchBar" class="form-control mt-4"  name="searchStudent" placeholder="Search Student by Name" autofocus>
+        </div>
+        <div class="form-group col-2 mt-4">
+          <button id="search_button" class="btn btn-success" type="submit">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+  <div class="container mt-3 mb-3 d-flex justify-content-center">
+    <div class="row gutters-sm">
+      {% if not filter %}
+      <h1>No Student Found</h1>
+      {% else %}
+        {% for student in filter %}
+        <div class="col-sm-6 mb-3">
+          <div class="card p-3">
+            <div class="d-flex align-items-center">
+              <div class="image"> 
+                <img src="{{student.student_photo.url}}" class="rounded" width="155"> 
+              </div>
+              <div class="ml-3 w-100">
+                <h4 class="mb-0 mt-0">{{student.student_name}}</h4>
+                  <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
+                    <div class="d-flex flex-column"> <span class="articles">Sr. No.</span> <span class="number1">{{student.serial_number}}</span> </div>
+                    <div class="d-flex flex-column"> <span class="followers">Class</span> <span class="number2">{{student.student_class}}</span> </div>
+                    <div class="d-flex flex-column"> <span class="rating">Section</span> <span class="number3">{{student.student_section}}</span> </div>
+                    <div class="d-flex flex-column"> <span class="rating">Roll No</span> <span class="number3">{{student.student_roll_no}}</span> </div>
+                  </div>
+                  <div class="button mt-2 d-flex flex-row align-items-center"> 
+                    <a class="btn btn-sm btn-primary w-100" href="{% url 'student_profile' student.serial_number %}">View</a> 
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script src="{% static 'js/search.js' %}"></script>
+{% endblock %}
